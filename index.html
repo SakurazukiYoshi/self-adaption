@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/test.css">
+    <style>
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="box1 blue">
+
+    </div>
+    <div class="box1 red">
+
+    </div>
+</div>
+
+
+<script>
+    (function (doc, win) {
+        console.log("dpr:"+win.devicePixelRatio);
+        var docEle = doc.documentElement,
+                isIos = navigator.userAgent.match(/iphone|ipod|ipad/gi),
+                dpr=Math.min(win.devicePixelRatio, 3);
+        scale = 1 / dpr,
+
+                resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+        docEle.dataset.dpr = dpr;
+
+        var metaEle = doc.createElement('meta');
+        metaEle.name = 'viewport';
+        metaEle.content = 'initial-scale=' + scale + ',maximum-scale=' + scale;
+        docEle.firstElementChild.appendChild(metaEle);
+
+
+        var recalCulate = function () {
+            var width = docEle.clientWidth;
+/*            if (width / dpr > 640) {
+                width = 640 * dpr;
+                console.log()
+            }*/
+            //这里是假设在750px宽度设计稿的情况下，1rem = 20px；
+            docEle.style.fontSize = 20 * (width / 1024) + 'px';
+        };
+
+        recalCulate();
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvent, recalCulate, false);
+    })(document, window);
+</script>
+</body>
+</html>

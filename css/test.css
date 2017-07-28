@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.blue {
+  background-color: blue;
+}
+.red {
+  background-color: red;
+}
+.box {
+  width: 51.2rem;
+  height: 51.2rem;
+  background-color: yellow;
+}
+.box .box1 {
+  width: 25.6rem;
+  height: 25.6rem;
+  float: left;
+}

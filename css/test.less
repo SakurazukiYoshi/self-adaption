@@ -1,0 +1,26 @@
+@designWidth : 1024; //如设计图是750
+.function{
+    .rem(@px){
+        return:@px*1024/@designWidth/20rem; //这句是不是感觉很熟悉 这句其实跟上面的那段js是对应的
+    }
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.blue{
+  background-color: blue;
+}
+.red{
+  background-color: red;
+}
+.box{
+  width:rem(1024);//如设计稿上的banner是300px 就免去计算环节
+  height:rem(1024);//如设计稿上的banner是300px 就免去计算环节
+  background-color: yellow;
+    .box1{
+      width: rem(512);
+      height: rem(512);
+      float: left;
+    }
+}
